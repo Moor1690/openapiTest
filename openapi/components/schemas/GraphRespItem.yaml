@@ -1,0 +1,29 @@
+type: object
+properties:
+  nm:
+    type: integer
+    format: uint64
+    example: 123
+  graph:
+    type: array
+    description: Массив пар, представляющих точки кривой.
+    items:
+      type: array
+      minItems: 2
+      maxItems: 2
+      items:
+        type: number
+        format: float64
+    example:
+      - [0, 0.00]
+      - [125, 95.15]
+      - [150, 95.93]
+      - [175, 103.38]
+  recommended:
+    type: integer
+    format: uint64
+    example: 175
+  status:
+    type: string
+    example: "ceiling"
+description: Ответный объект для точек кривой NM, включающий идентификатор НМ, график изменений CPM относительно показов, рекомендуемое значение CPM, и статус, отражающий потолок или максимальное значение показов.

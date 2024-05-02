@@ -1,0 +1,42 @@
+get:
+  summary: Нижний порог ставки CPO
+  description: |
+    Возвращает минимально допустимое значение ставки CPO для НМ.
+
+    ### Параметры:
+    - `nm_id`: Список идентификаторов NM. Каждый идентификатор должен быть числом. Идентификаторы указываются через запятую без пробелов. Пример: "590278,67022774".
+
+    ### Формат ответа:
+    Возвращаемый результат содержит массив объектов, каждый из которых включает:
+    - `nm`: Идентификатор NM.
+    - `cpo`: Минимальная цена за заказ (CPO) для данного NM.
+
+  parameters:
+    - in: query
+      name: nm_id
+      required: true
+      schema:
+        type: string
+      description: Список идентификаторов NM, разделенных запятыми. Каждый идентификатор должен быть числом.
+      example: "590278,67022774"
+  responses:
+    '200':
+      description: Успешный ответ с ценами для NM.
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Price.yaml'
+    400:
+      description: Ошибка в формате идентификаторов NM.
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: "nm_id param is malformed"
+    500:
+      description: Внутренняя ошибка сервера при получении цен.
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: "get prices error"

@@ -1,0 +1,16 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: uint64
+    description: Уникальный идентификатор пресета.
+    example: 200020117
+  preset:
+    type: string
+    description: Запрос, ассоциированный с пресетом.
+    example: eleganzza
+  percent:
+    type: number
+    format: float64
+    description: Доля пресета от общего числа.
+    example: 100

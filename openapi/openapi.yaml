@@ -1,0 +1,14 @@
+openapi: 3.0.0
+info:
+  title: bid-adviser API
+  version: "1.0.0"
+servers:
+  - url: https://bid-adviser.wildberries.ru
+    description: prod
+paths:
+  /get_nm_curves:
+    $ref: './paths/getNmCurves.yaml'
+  /get_preset_curve:
+    $ref: './paths/getPresetCurve.yaml'
+  /bid_floor:
+    $ref: './paths/getNmPrices.yaml'

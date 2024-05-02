@@ -1,0 +1,12 @@
+type: object
+properties:
+  nm:
+    type: integer
+    format: int64
+    description: Идентификатор NM.
+    example: 590278
+  cpo:
+    type: integer
+    format: uint32
+    description: Минимальная цена за заказ (CPO).
+    example: 236
